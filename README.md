@@ -1,4 +1,4 @@
 
-harvard cs50x cs course problem sets
+harvard cs50x course problem sets
 
 written by Olli L
