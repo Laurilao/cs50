@@ -1,0 +1,4 @@
+0. Allows dimensions between 3x3 and 9x9, inclusive
+1. TODO
+2. void greet();
+3. void init(), void draw(), bool move(), bool won()

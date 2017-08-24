@@ -1,0 +1,7 @@
+0.  Longest length dictionry word allowed
+1.  Gets system resource usage
+2.  16
+3.  to get the time elapsed between starting and ending the function
+4.  reads from input file one letter at a time until \0 (complete word) or EOF is reached
+5.  possible issues with reading apostrophes, fgetc also keeps track of the length of the word being read to avoid overflow issues
+6.  to avoid pointing the pointer variable to an invalid location, they need not to be altered by the function

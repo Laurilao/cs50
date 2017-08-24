@@ -1,0 +1,12 @@
+1.  C header file to be able to use exact width integers
+2.  To get an exact width for an integer so headerfile byte offsets will always match
+3.  BYTE = 1 byte, DWORD = 4 bytes, LONG = 4 bytes, WORD = 2 bytes
+4.  First 2 bytes of a .bmp  file must be B, M (in ASCII) or 0x42, 0x4D (hexadecimal)
+5.  bfSize is the size of the .bmp file (in bytes) and biSize is the size of the BITMAPINFOHEADER struct (40 bytes)
+6.  the bitmap is a top-down DIB, and the origin is the upper-left corner
+7.  biBitCount
+8.  User could open an invalid file or mistype the filename
+9.  The program only needs to read the infile's fileheader 1 time(s)
+10. 3
+11. fseek can be used to change the position of the file pointer through a file
+12. current position of the pointer in the file to be used for fseek

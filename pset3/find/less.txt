@@ -1,0 +1,17 @@
+    
+    int j = 0;
+    int min = values[j];
+    
+    for(int i = 0; i < n - 1; i++)
+    {
+        
+        if(values[i] < min)
+        {
+            int temp = values[i];
+            values[i] = values[j];
+            values[j] = temp;
+            min = values[j];
+        }
+        
+        
+    }

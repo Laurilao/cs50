@@ -1,0 +1,10 @@
+        if(length == 1)
+        {
+            if(value == values[right] || value == values[left])
+            {
+                return true;
+            }
+            else
+            {
+                break;
+            }

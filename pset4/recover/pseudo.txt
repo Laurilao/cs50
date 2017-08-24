@@ -1,0 +1,11 @@
+scan file until EOF
+    write 512 bytes to buffer
+    if jpg header
+        is first?
+            print output
+        is not first
+            open new file
+            print
+        update found count
+    else if found count > 0
+        print output
