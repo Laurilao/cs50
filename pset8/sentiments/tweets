@@ -1,3 +1,48 @@
 #!/usr/bin/env python3
 
-# TODO
+import os
+import sys
+
+from analyzer import Analyzer
+from termcolor import colored
+from helpers import get_user_timeline
+
+def main():
+
+    # ensure proper usage
+    if len(sys.argv) != 2:
+        sys.exit("Usage: ./tweets @screen_name")
+
+    # absolute paths to lists
+    positives = os.path.join(sys.path[0], "positive-words.txt")
+    negatives = os.path.join(sys.path[0], "negative-words.txt")
+
+    # instantiate analyzer
+    analyzer = Analyzer(positives, negatives)
+    
+    # get 50 most recent tweets from @screen_name
+    tweets = get_user_timeline(sys.argv[1], 50)
+    
+    # check if tweets were private and if user exists at all
+    if tweets == None:
+        sys.exit("User is private or doesn't exist")
+        
+    #if successful    
+    elif not tweets == None:
+        
+        # iterate over 50 tweets from input @screen_name
+        # and print them color coded
+        for tweet in tweets:
+            score = analyzer.analyze(tweet)
+            if score > 0.0:
+                print(colored(score, "green"), "", end="")
+                print(colored(tweet, "green"))
+            elif score < 0.0:
+                print(colored(score, "red"), "", end="")
+                print(colored(tweet, "red"))
+            else:
+                print(colored(score, "yellow"), "", end="")
+                print(colored(tweet, "yellow"))
+
+if __name__ == "__main__":
+    main()
