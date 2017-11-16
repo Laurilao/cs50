@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell Stocks
+{% endblock %}
+
+{% block main %}
+
+<h1 style="text-align:center;">Your stocks:</h1>
+<style>
+h1 {
+    animation: fadeIn 1s;
+    font-family: 'Raleway', sans-serif;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+    animation: slideFromRight 0.7s, fadeIn 1s;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.form-group {
+    animation: fadeIn 1s;
+}
+
+</style>
+<table align="center">
+    <tr>
+        <th>Symbol</th>
+        <th>Company</th>
+        <th>Shares</th>
+        <th>Price of Stock ($)</th>
+        <th>TOTAL</th>
+    </tr>
+    {% for stock in owned %}
+        <tr>
+            <td>{{ stock.symbol }}</td>
+            <td>{{ stock.company }}</td>
+            <td>{{ stock.amount }}</td>
+            <td>{{ stock.price }}$</td>
+            <td>{{ stock.value }}$</td>
+        </tr>
+    {% endfor %}
+</table>
+
+<br>
+<br>
+
+<form action="{{ url_for('sell') }}" method="post">
+    <fieldset>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="stock" placeholder="Symbol of stock" type="text"/>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="amount" placeholder="Number of shares to sell" type="text"/>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-default" type="submit">Sell</button>
+        </div>
+    </fieldset>
+</form>
+{% endblock %}

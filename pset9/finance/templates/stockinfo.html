@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    StockInfo
+{% endblock %}
+
+{% block main %}
+<h1 style="text-align:center;">Quote found:</h1>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+<table align="center">
+    <tr>
+        <th>Symbol</th>
+        <th>Company</th>
+        <th>Price of Stock ($)</th>
+    </tr>
+        <td>{{ symbol }}</td>
+        <td>{{ company }}</td>
+        <td>{{ price }}$</td>
+    </tr>
+</table>
+
+{% endblock %}

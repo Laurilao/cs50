@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy Stocks
+{% endblock %}
+
+{% block main %}
+<style type="text/css">
+    .form-group {
+        animation: fadeIn 1s;
+    }
+</style>
+
+    <form action="{{ url_for('buy') }}" method="post">
+        <fieldset>
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="stock" placeholder="Symbol of stock" type="text"/>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="amount" placeholder="Number of shares" type="text"/>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-default" type="submit">Buy</button>
+            </div>
+        </fieldset>
+    </form>
+{% endblock %}
