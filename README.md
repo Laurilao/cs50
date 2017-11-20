@@ -1,4 +1,2 @@
 
-harvard cs50x course problem sets
-
-written by Olli L
+Harvardin cs50 kurssin tehtavapakettien ratkaisut
